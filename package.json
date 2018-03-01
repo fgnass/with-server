@@ -1,0 +1,21 @@
+{
+  "name": "with-server",
+  "version": "1.0.0",
+  "description": "start server, run command, stop server",
+  "author": "Felix Gnass <fgnass@cellular.de>",
+  "repository": "cellular/with-server",
+  "license": "MIT",
+  "main": "index.js",
+  "bin": {
+    "with-server": "./bin/with-server.js"
+  },
+  "scripts": {
+    "start": "serve node_modules/todomvc-react/dist",
+    "test": "./bin/with-server.js --grep Running.* npm run test:e2e",
+    "test:e2e": "node -e 'process.exitCode = process.env.SERVER_URL ? 0 : 1'"
+  },
+  "devDependencies": {
+    "serve": "^6.5.0",
+    "todomvc-react": "^1.0.3"
+  }
+}
