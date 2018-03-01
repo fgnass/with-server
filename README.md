@@ -1,5 +1,8 @@
 # with-server (1)
 
+[![Build Status](https://travis-ci.org/cellular/with-server.svg?branch=master)](https://travis-ci.org/cellular/with-server)
+
+
 ## Usage 
 
 `with-server [options] cmd`
