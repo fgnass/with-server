@@ -47,18 +47,19 @@ function run(opts) {
         });
       },
     };
-  });  
-};
+  });
+}
 
 function executor(cmd) {
   if (typeof cmd == 'function') return cmd;
-  if (!Array.isArray(cmd)) cms = String(cmd).split(' ');
+  if (!Array.isArray(cmd)) cmd = String(cmd).split(' ');
   const [bin, ...args] = cmd;
-  return url => new Promise(resolve => {
-    process.env.SERVER_URL = url;
-    const res = cp.spawnSync(bin, args, { shell: true, stdio: 'inherit' });
-    resolve(res);
-  });
+  return url =>
+    new Promise(resolve => {
+      process.env.SERVER_URL = url;
+      const res = cp.spawnSync(bin, args, { shell: true, stdio: 'inherit' });
+      resolve(res);
+    });
 }
 
 module.exports = function(cmd, opts) {
@@ -67,5 +68,5 @@ module.exports = function(cmd, opts) {
     const url = getUrl(match);
     const res = Promise.resolve(fn(url));
     return stop().then(() => res);
-  })
-}
+  });
+};

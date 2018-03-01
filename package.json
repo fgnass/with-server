@@ -11,10 +11,13 @@
   },
   "scripts": {
     "start": "serve node_modules/todomvc-react/dist",
+    "lint": "cellular-lint",
     "test": "./bin/with-server.js --grep Running.* npm run test:e2e",
-    "test:e2e": "node -e 'process.exitCode = process.env.SERVER_URL ? 0 : 1'"
+    "test:e2e": "node -e 'process.exitCode = process.env.SERVER_URL ? 0 : 1'",
+    "precommit": "cellular-lint-staged"
   },
   "devDependencies": {
+    "cellular-lint": "^1.0.6",
     "serve": "^6.5.0",
     "todomvc-react": "^1.0.3"
   }
