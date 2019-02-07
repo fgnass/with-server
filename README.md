@@ -2,8 +2,7 @@
 
 [![Build Status](https://travis-ci.org/cellular/with-server.svg?branch=master)](https://travis-ci.org/cellular/with-server)
 
-
-## Usage 
+## Usage
 
 `with-server [options] cmd`
 
@@ -13,32 +12,30 @@ If the matched text snippet contains an URL, IPv4 address or 4-digit port number
 
 ### Options
 
-* `--run` npm script to run (defaults to `start`)
-* `--grep` regular expression to look for (defaults to `https?://\\S+`)
+- `--run` npm script to run (defaults to `start`)
+- `--grep` regular expression to look for (defaults to `https?://\\S+`)
 
 ## Example
 
 ```json
 {
-    "scripts": {
-        "start": "webpack-dev-server",
-        "test": "with-server test:e2e",
-        "test:e2e": "echo testing $SERVER_URL"
-    }
+  "scripts": {
+    "start": "webpack-dev-server",
+    "test": "with-server echo testing $SERVER_URL"
+  }
 }
 ```
 
 # API
 
 ```js
-const withServer = require('with-server');
+const withServer = require("with-server");
 
-withServer('npm test', {
+withServer("npm test", {
   grep: /https?:\/\/\S+/,
-  run: 'start'
-})
-.then(result => {
-  console.log('Exit code', result.status);
+  run: "start"
+}).then(result => {
+  console.log("Exit code", result.status);
 });
 ```
 
