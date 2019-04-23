@@ -17,8 +17,8 @@
     "precommit": "cellular-lint-staged"
   },
   "devDependencies": {
-    "cellular-lint": "^1.0.6",
-    "serve": "^6.5.0",
-    "todomvc-react": "^1.0.3"
+    "cellular-lint": "^2.0.1",
+    "serve": "^11.0.0",
+    "todomvc-react": "^1.0.4"
   }
 }
