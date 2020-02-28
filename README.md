@@ -2,29 +2,38 @@
 
 [![Build Status](https://travis-ci.org/cellular/with-server.svg?branch=master)](https://travis-ci.org/cellular/with-server)
 
+Command line utility to start/stop a local server
+in order to execute end-to-end tests. Here is what it does:
+
+- Find a free TCP port, expose it as `$PORT` for convenience
+- Run `npm start` (or a custom npm script) to launch the server under test
+- Scan the output for a URL (or a custom pattern)
+- Expose that URL as `$SERVER_URL`
+- Execute an arbitrary command (your test suite)
+- Gracefully shut down the server
+
 ## Usage
 
 `with-server [options] cmd`
 
-Runs `npm start` and scans stdout for a given pattern. Once it is found `cmd` is executed.
-
-If the matched text snippet contains an URL, IPv4 address or 4-digit port number the `SERVER_URL` environment variable is set accordingly.
-
 ### Options
 
-- `--run` npm script to run (defaults to `start`)
+- `--run` The npm script to run (defaults to `start`)
 - `--grep` regular expression to look for (defaults to `https?://\\S+`)
 
 ## Example
 
+Lets say you have the following script in your `package.json`:
+
 ```json
 {
   "scripts": {
-    "start": "webpack-dev-server",
-    "test": "with-server echo testing $SERVER_URL"
+    "start": "webpack-dev-server"
   }
 }
 ```
+
+Then `npx with-server jest` will launch a webpack-dev-server, expose its URL as `$SERVER_URL` and invoke `jest`.
 
 # API
 
