@@ -10,13 +10,9 @@
     "with-server": "./bin/with-server.js"
   },
   "scripts": {
-    "start": "serve -p $PORT node_modules/todomvc-react/dist",
-    "test": "./bin/with-server.js npm run test:e2e",
-    "test:e2e": "node -e 'process.exitCode = process.env.SERVER_URL ? 0 : 1'"
-  },
-  "devDependencies": {
-    "serve": "^11.3.0",
-    "todomvc-react": "^1.0.4"
+    "start": "node test/server",
+    "test": "./bin/with-server.js node test/client",
+    "test-silent": "./bin/with-server.js --redirect null node test/client"
   },
   "dependencies": {
     "get-port": "^5.1.1",
