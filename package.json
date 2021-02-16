@@ -1,13 +1,13 @@
 {
   "name": "with-server",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "start server, run command, stop server",
   "author": "Felix Gnass <fgnass@cellular.de>",
   "repository": "cellular/with-server",
   "license": "MIT",
   "main": "index.js",
   "bin": {
-    "with-server": "./bin/with-server.js"
+    "with-server": "bin/with-server.js"
   },
   "scripts": {
     "start": "node test/server",
