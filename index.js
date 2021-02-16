@@ -49,7 +49,11 @@ function runScript(opts) {
       child.once("exit", () => {
         resolve();
       });
-      process.kill(-child.pid);
+      try {
+        process.kill(-child.pid);
+      } catch (err) {
+        // silently ignore if kill fails
+      }
     });
   };
 }

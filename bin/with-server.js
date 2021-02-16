@@ -4,7 +4,7 @@ const parseArgs = require("minimist");
 const withServer = require("..");
 
 const argv = parseArgs(process.argv.slice(2), {
-  string: ["run", "grep", "redirect"],
+  string: ["run", "redirect"],
   default: {
     run: "start",
   },
