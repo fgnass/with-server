@@ -1,6 +1,6 @@
 const net = require("net");
 const cp = require("child_process");
-const getPort = require("get-port");
+const portfinder = require("portfinder");
 
 /**
  * Wait for a local tcp port to become available.
@@ -78,7 +78,7 @@ function exec(cmd) {
 module.exports = async function (cmd, opts) {
   let port = process.env.PORT;
   if (!port) {
-    port = await getPort({ port: [3000, 5000, 8000] });
+    port = await portfinder.getPortPromise();
   }
   process.env.PORT = port;
 

@@ -1,7 +1,5 @@
 # with-server (1)
 
-[![Build Status](https://travis-ci.org/cellular/with-server.svg?branch=master)](https://travis-ci.org/cellular/with-server)
-
 Command line utility to start/stop a local server
 in order to execute end-to-end tests once the server is ready.
 
